@@ -58,7 +58,7 @@ function TodayActivity() {
             </TodayList>
           )}
 
-          {activities?.length < 0 && (
+          {activities?.length === 0 && (
             <NoActivity>No activity today...</NoActivity>
           )}
         </>

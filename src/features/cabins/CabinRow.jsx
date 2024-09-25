@@ -39,7 +39,7 @@ const Discount = styled.div`
 
 function CabinRow({ aCabinData }) {
   const { isDeleting, deleteCabin } = useDeletCabin();
-  const { /*isCreating ,*/ createCabin } = useCreateCabin();
+  const { isCreating, createCabin } = useCreateCabin();
 
   // {id,created_at,name,maxCapacity,regularPrice,discount,description,image}
   const {
@@ -77,7 +77,11 @@ function CabinRow({ aCabinData }) {
           <Menus.Menu>
             <Menus.Toggle id={cabinId} />
             <Menus.List id={cabinId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Menus.Button
+                disabled={isCreating}
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+              >
                 Duplicate
               </Menus.Button>
               <Modal.Open opens="edit">
